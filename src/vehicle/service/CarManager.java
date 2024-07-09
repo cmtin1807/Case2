@@ -54,8 +54,19 @@ public class CarManager {
             if (!car.getLicensePlates().equals(licensePlatesRemove)) {
                 carToKeep.add(car);
             } else {
-                System.out.println("Xoa thanh cong " + car);
                 isLicensePlatesRemove = true;
+                System.out.println("Biển số xe bạn vừa nhập có trong kho quản lý. Bạn có thực sự muốn xóa hay không");
+                System.out.println("1. Yes");
+                System.out.println("2. No");
+                int choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        System.out.println("Xóa thành công " + car);
+                        break;
+                    case 2:
+                        carToKeep.add(car);
+                        break;
+                }
             }
         }
         carManager.clear();

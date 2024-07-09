@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DisplayProgram {
     public static int displayMenu(Scanner scanner) {
-        System.out.println("Chọn Chức Năng:");
+        System.out.println("----------CHƯƠNG TRÌNH QUẢN LÝ PHƯƠNG TIỆN GIAO THÔNG----------");
         System.out.println("1. Thêm mới phương tiện");
         System.out.println("2. Hiển thị phương tiện");
         System.out.println("3. Xóa phương tiện");
@@ -16,6 +16,7 @@ public class DisplayProgram {
     }
 
     public static int getChoiceAddVehicle(Scanner scanner) {
+        System.out.println("-----CHỨC NĂNG THÊM PHƯƠNG TIỆN-----");
         System.out.println("1. Thêm xe tải");
         System.out.println("2. Thêm ôtô");
         System.out.println("3. Thêm  xe máy");
@@ -27,6 +28,7 @@ public class DisplayProgram {
     }
 
     public static int getChoiceDisplayVehicle(Scanner scanner) {
+        System.out.println("-----CHỨC NĂNG HIỂN THỊ PHƯƠNG TIỆN-----");
         System.out.println("1. Hiển thị xe tải");
         System.out.println("2. Hiển thị ôtô");
         System.out.println("3. Hiển thị xe máy");
@@ -37,6 +39,7 @@ public class DisplayProgram {
     }
 
     public static int getChoiceRemoveVehicle(Scanner scanner) {
+        System.out.println("-----CHỨC NĂNG XÓA PHƯƠNG TIỆN-----");
         System.out.println("1. Xóa xe tải");
         System.out.println("2. Xóa ôtô");
         System.out.println("3. Xóa xe máy");
@@ -47,6 +50,7 @@ public class DisplayProgram {
     }
 
     public static int getChoiceUpdateVehicle(Scanner scanner) {
+        System.out.println("-----CHỨC NĂNG CẬP NHẬP PHƯƠNG TIỆN-----");
         System.out.println("1. Cập nhập xe tải");
         System.out.println("2. Cập nhập ôtô");
         System.out.println("3. Cập nhập xe máy");

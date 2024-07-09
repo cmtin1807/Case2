@@ -52,15 +52,28 @@ public class TruckManager {
             if (!truck.getLicensePlates().equals(licensePlatesRemove)) {
                 trucksToKeep.add(truck);
             } else {
-                System.out.println("Xoa thanh cong " + truck);
                 isLicensePlatesRemove = true;
+                System.out.println("Biển số xe bạn vừa nhập có trong kho quản lý. Bạn có thực sự muốn xóa hay không");
+                System.out.println("1. Yes");
+                System.out.println("2. No");
+                int choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        System.out.println("Xóa thành công " + truck);
+
+                        break;
+                    case 2:
+                        trucksToKeep.add(truck);
+
+                        break;
+                }
             }
-        }
-        truckManager.clear();
-        truckManager.addAll(trucksToKeep);
-        writeFileTruck(fileTruck, truckManager);
-        if (!isLicensePlatesRemove) {
-            System.out.println("Biển số xe bạn nhập không hợp lệ");
+            truckManager.clear();
+            truckManager.addAll(trucksToKeep);
+            writeFileTruck(fileTruck, truckManager);
+            if (!isLicensePlatesRemove) {
+                System.out.println("Biển số xe bạn nhập không hợp lệ");
+            }
         }
     }
     public static void updateVehicleTruck(Scanner scanner, File fileTruck, List<Truck> truckManager) throws IOException {

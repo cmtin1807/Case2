@@ -1,7 +1,6 @@
 package vehicle.service;
 
 
-
 import vehicle.model.MotorBike;
 import vehicle.model.Vehicle;
 
@@ -36,12 +35,14 @@ public class MotorBikeManager {
         writeFileMotorBikeAddMotorBike(fileMotorBike, motorBike);
         loadFileMotorBike(fileMotorBike, motorBikeManager);
     }
+
     public static void displayMotorBike(File fileMotorBike, List<MotorBike> motorBikeManager) throws IOException {
         loadFileMotorBike(fileMotorBike, motorBikeManager);
         for (Vehicle motorBike : motorBikeManager) {
             System.out.println(motorBike);
         }
     }
+
     public static void removeVehicleMotorBike(Scanner scanner, File fileMotorBike, List<MotorBike> motorBikeManager) throws IOException {
         System.out.println("Enter chọn biển số xóa");
         String licensePlatesRemove = scanner.nextLine();
@@ -52,8 +53,21 @@ public class MotorBikeManager {
             if (!motorBike.getLicensePlates().equals(licensePlatesRemove)) {
                 motorBikeToKeep.add(motorBike);
             } else {
-                System.out.println("Xoa thanh cong " + motorBike);
                 isLicensePlatesRemove = true;
+                System.out.println("Biển số xe bạn vừa nhập có trong kho quản lý. Bạn có thực sự muốn xóa hay không");
+                System.out.println("1. Yes");
+                System.out.println("2. No");
+                int choice = Integer.parseInt(scanner.nextLine());
+                switch (choice) {
+                    case 1:
+                        System.out.println("Xóa thành công " + motorBike);
+
+                        break;
+                    case 2:
+                        motorBikeToKeep.add(motorBike);
+                        break;
+                }
+
             }
         }
 
@@ -64,6 +78,7 @@ public class MotorBikeManager {
             System.out.println("Biển số xe bạn nhập không hợp lệ");
         }
     }
+
     public static void updateVehicleMotorBike(Scanner scanner, File fileMotorBike, List<MotorBike> motorBikeManager) throws IOException {
         System.out.println("Enter chọn biển số cập nhập");
         String licensePlatesUpdate = scanner.nextLine();
@@ -98,8 +113,6 @@ public class MotorBikeManager {
             System.out.println("Biển số xe bạn nhập không hợp lệ");
         }
     }
-
-
 
 
 }
