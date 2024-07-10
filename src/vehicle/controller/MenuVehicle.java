@@ -24,11 +24,12 @@ import static vehicle.util.IViewDisplayVehicle.*;
 import static vehicle.util.IViewDisplayVehicle.EXIT_DISPLAY;
 import static vehicle.util.IViewRemoveVehicle.*;
 import static vehicle.util.IViewRemoveVehicle.EXIT_REMOVE;
+import static vehicle.util.IViewSortVehicle.*;
 import static vehicle.util.IViewUpdateVehicle.*;
 import static vehicle.util.IViewUpdateVehicle.EXIT_UPDATE;
 
 public class MenuVehicle {
-    public static void functionAddVehicle(Scanner scanner) throws IOException {
+    public static void functionAddVehicle(Scanner scanner){
         boolean addVehicle = true;
         while (addVehicle) {
             int choiceThem = getChoiceAddVehicle(scanner);
@@ -54,7 +55,7 @@ public class MenuVehicle {
     }
 
 
-    public static void functionDisplayVehicle(Scanner scanner) throws IOException {
+    public static void functionDisplayVehicle(Scanner scanner)  {
         boolean displayVehicle = true;
         while (displayVehicle) {
             int choiceDisplay = getChoiceDisplayVehicle(scanner);
@@ -74,12 +75,11 @@ public class MenuVehicle {
                     break;
                 default:
                     System.out.println("Chức năng bạn chọn không phù hợp. Vui lòng chọn lại");
-
             }
         }
     }
 
-    public static void functionRemoveVehicle(Scanner scanner, File fileTruck, List<Truck> truckManager, List<Car> carManager, File fileCar, List<MotorBike> motorBikeManager) throws IOException {
+    public static void functionRemoveVehicle(Scanner scanner, File fileTruck, List<Truck> truckManager, List<Car> carManager, File fileCar, List<MotorBike> motorBikeManager) {
         boolean removeVehicle = true;
         while (removeVehicle) {
             int ChoiceRemove = getChoiceRemoveVehicle(scanner);
@@ -102,7 +102,7 @@ public class MenuVehicle {
             }
         }
     }
-    public static void functionUpdateVehicle(Scanner scanner, File fileTruck, List<Truck> truckManager, List<Car> carManager, File fileCar, List<MotorBike> motorBikeManager) throws IOException {
+    public static void functionUpdateVehicle(Scanner scanner, File fileTruck, List<Truck> truckManager, List<Car> carManager, File fileCar, List<MotorBike> motorBikeManager){
         boolean isUpdateVehicle = true;
         while (isUpdateVehicle) {
             int ChoiceUpdate = getChoiceUpdateVehicle(scanner);
@@ -119,6 +119,29 @@ public class MenuVehicle {
                 case EXIT_UPDATE:
                     System.out.println("Đã thoát ra khỏi chương trình cập nhâp phương tiện");
                     isUpdateVehicle = false;
+                    break;
+                default:
+                    System.out.println("Chức năng bạn chọn không phù hợp. Vui lòng chọn lại");
+            }
+        }
+    }
+    public static void functionSortVehicle(Scanner scanner)  {
+        boolean sortVehicle = true;
+        while (sortVehicle) {
+            int choiceSort = getChoiceSortVehicle(scanner);
+            switch (choiceSort) {
+                case SORT_VEHICLE_TRUCK:
+                    sortVehicleTruck(fileTruck, truckManager);
+                    break;
+                case SORT_VEHICLE_CAR:
+                    sortVehicleCar(fileCar, carManager);
+                    break;
+                case SORT_VEHICLE_MOTORBIKE:
+                    sortVehicleMotorBike(fileMotorBike, motorBikeManager);
+                    break;
+                case EXIT_SORT:
+                    System.out.println("Đã thoát ra khỏi chương trình sắp xếp phương tiện");
+                    sortVehicle = false;
                     break;
                 default:
                     System.out.println("Chức năng bạn chọn không phù hợp. Vui lòng chọn lại");

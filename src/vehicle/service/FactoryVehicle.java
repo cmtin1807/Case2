@@ -28,6 +28,7 @@ public class FactoryVehicle {
     public static String linkFileTruck = "src/vehicle/data/xeTai.csv";
     public static String linkFileCar = "src/vehicle/data/oto.csv";
     public static String linkFileMotorBike = "src/vehicle/data/xeMay.csv";
+
     public static List<Truck> truckManager = new ArrayList<>();
     public static List<Car> carManager = new ArrayList<>();
     public static List<MotorBike> motorBikeManager = new ArrayList<>();

@@ -3,21 +3,19 @@ package vehicle.service;
 
 
 import vehicle.model.Car;
+import vehicle.model.MotorBike;
 import vehicle.model.Vehicle;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static vehicle.service.CompanyManager.getCompany;
 import static vehicle.util.ReadAndWrite.*;
 
 
 public class CarManager {
-    public static void addVehicleCar(Scanner scanner, List<Car> carManager, File fileCar) throws IOException {
+    public static void addVehicleCar(Scanner scanner, List<Car> carManager, File fileCar) {
         System.out.println("Biển kiểm soát: ");
         String bienKiemSoat = scanner.nextLine();
         System.out.println("Tên hãng sản xuất ");
@@ -37,13 +35,13 @@ public class CarManager {
         writeFileCarAddCar(fileCar, car);
         loadFileCar(fileCar, carManager);
     }
-    public static void displayCar(File fileCar, List<Car> carManager) throws IOException {
+    public static void displayCar(File fileCar, List<Car> carManager){
         loadFileCar(fileCar, carManager);
         for (Vehicle car : carManager) {
             System.out.println(car);
         }
     }
-    public static void removeVehicleCar(Scanner scanner,  File fileCar, List<Car> carManager) throws IOException {
+    public static void removeVehicleCar(Scanner scanner,  File fileCar, List<Car> carManager){
         System.out.println("Enter chọn biển số xóa");
         String licensePlatesRemove = scanner.nextLine();
         boolean isLicensePlatesRemove = false;
@@ -76,7 +74,7 @@ public class CarManager {
             System.out.println("Biển số xe bạn nhập không hợp lệ");
         }
     }
-    public static void updateVehicleCar(Scanner scanner,  File fileCar, List<Car> carManager) throws IOException {
+    public static void updateVehicleCar(Scanner scanner,  File fileCar, List<Car> carManager){
         System.out.println("Enter chọn biển số update");
         String licensePlatesUpdate = scanner.nextLine();
         boolean isLicensePlatesUpdate = false;
@@ -109,6 +107,13 @@ public class CarManager {
         writeFileCar(fileCar, carManager);
         if (!isLicensePlatesUpdate) {
             System.out.println("Biển số xe bạn nhập không hợp lệ");
+        }
+    }
+    public static void sortVehicleCar(File fileCar, List<Car> carManager){
+        loadFileCar(fileCar, carManager);
+        Collections.sort(carManager, Comparator.comparing(Car::getLicensePlates));
+        for (Vehicle car : carManager) {
+            System.out.println(car);
         }
     }
 }

@@ -1,6 +1,6 @@
 package vehicle.controller;
 
-import java.io.*;
+
 import java.util.Scanner;
 
 import static vehicle.controller.MenuVehicle.*;
@@ -11,7 +11,7 @@ import static vehicle.util.ReadAndWrite.*;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         loadFileTruck(fileTruck, truckManager);
         loadFileCar(fileCar, carManager);
@@ -30,6 +30,9 @@ public class Main {
                     break;
                 case UPDATE_VEHICLE:
                     functionUpdateVehicle(scanner, fileTruck, truckManager, carManager, fileCar, motorBikeManager);
+                    break;
+                case SORT_VEHICLE:
+                    functionSortVehicle(scanner);
                     break;
                 case EXIT:
                     System.exit(0);

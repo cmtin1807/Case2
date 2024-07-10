@@ -2,21 +2,19 @@ package vehicle.service;
 
 
 import vehicle.model.MotorBike;
+import vehicle.model.Truck;
 import vehicle.model.Vehicle;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static vehicle.service.CompanyManager.getCompany;
 import static vehicle.util.ReadAndWrite.*;
 
 
 public class MotorBikeManager {
-    public static void addVehicleMotorBike(Scanner scanner, List<MotorBike> motorBikeManager, File fileMotorBike) throws IOException {
+    public static void addVehicleMotorBike(Scanner scanner, List<MotorBike> motorBikeManager, File fileMotorBike){
         System.out.println("Biển kiểm soát: ");
         String bienKiemSoat = scanner.nextLine();
         System.out.println("Tên hãng sản xuất ");
@@ -36,14 +34,14 @@ public class MotorBikeManager {
         loadFileMotorBike(fileMotorBike, motorBikeManager);
     }
 
-    public static void displayMotorBike(File fileMotorBike, List<MotorBike> motorBikeManager) throws IOException {
+    public static void displayMotorBike(File fileMotorBike, List<MotorBike> motorBikeManager){
         loadFileMotorBike(fileMotorBike, motorBikeManager);
         for (Vehicle motorBike : motorBikeManager) {
             System.out.println(motorBike);
         }
     }
 
-    public static void removeVehicleMotorBike(Scanner scanner, File fileMotorBike, List<MotorBike> motorBikeManager) throws IOException {
+    public static void removeVehicleMotorBike(Scanner scanner, File fileMotorBike, List<MotorBike> motorBikeManager) {
         System.out.println("Enter chọn biển số xóa");
         String licensePlatesRemove = scanner.nextLine();
         boolean isLicensePlatesRemove = false;
@@ -79,7 +77,7 @@ public class MotorBikeManager {
         }
     }
 
-    public static void updateVehicleMotorBike(Scanner scanner, File fileMotorBike, List<MotorBike> motorBikeManager) throws IOException {
+    public static void updateVehicleMotorBike(Scanner scanner, File fileMotorBike, List<MotorBike> motorBikeManager){
         System.out.println("Enter chọn biển số cập nhập");
         String licensePlatesUpdate = scanner.nextLine();
         boolean isLicensePlatesUpdate = false;
@@ -111,6 +109,13 @@ public class MotorBikeManager {
         writeFileMotorBike(fileMotorBike, motorBikeManager);
         if (!isLicensePlatesUpdate) {
             System.out.println("Biển số xe bạn nhập không hợp lệ");
+        }
+    }
+    public static void sortVehicleMotorBike(File fileMotorBike, List<MotorBike> motorBikeManager){
+        loadFileMotorBike(fileMotorBike, motorBikeManager);
+        Collections.sort(motorBikeManager, Comparator.comparing(MotorBike::getLicensePlates));
+        for (Vehicle motorBike : motorBikeManager) {
+            System.out.println(motorBike);
         }
     }
 

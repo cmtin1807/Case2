@@ -9,6 +9,7 @@ public class DisplayProgram {
         System.out.println("2. Hiển thị phương tiện");
         System.out.println("3. Xóa phương tiện");
         System.out.println("4. Cập nhập phương tiện");
+        System.out.println("5. Sắp xếp phương tiện");
         System.out.println("0. Thoát");
         System.out.println("Enter chức năng lựa chọn của bạn");
         int choice = Integer.parseInt(scanner.nextLine());
@@ -58,5 +59,15 @@ public class DisplayProgram {
         System.out.println("Enter chức năng lựa chọn của bạn");
         int choiceRemove = Integer.parseInt(scanner.nextLine());
         return choiceRemove;
+    }
+    public static int getChoiceSortVehicle(Scanner scanner) {
+        System.out.println("-----CHỨC NĂNG SẮP XẾP PHƯƠNG TIỆN-----");
+        System.out.println("1. Sắp xếp xe tải");
+        System.out.println("2. Sắp xếp ôtô");
+        System.out.println("3. Sắp xếp xe máy");
+        System.out.println("0. Thoát");
+        System.out.println("Enter chức năng lựa chọn của bạn");
+        int choiceSort= Integer.parseInt(scanner.nextLine());
+        return choiceSort;
     }
 }

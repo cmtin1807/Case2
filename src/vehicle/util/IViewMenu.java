@@ -5,5 +5,6 @@ public interface IViewMenu {
     int SHOW_VEHICLE = 2;
     int REMOVE_VEHICLE = 3;
     int UPDATE_VEHICLE = 4;
+    int SORT_VEHICLE = 5;
     int EXIT = 0;
 }
